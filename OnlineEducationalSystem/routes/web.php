@@ -39,3 +39,5 @@ Route::post('/payment','App\Http\Controllers\Payment@payment')->name('payment');
 Route::post('/paymentconfirmed','App\Http\Controllers\Payment@paymentconfirmed')->name('paymentconfirmed');
 
 Route::get('/showcourse','App\Http\Controllers\Courses@showcourse')->name('showcourse');
+
+Route::get('/downloadpdf','App\Http\Controllers\Courses@downloadpdf')->name('downloadpdf');

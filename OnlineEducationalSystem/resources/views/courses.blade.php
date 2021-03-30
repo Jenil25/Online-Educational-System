@@ -10,35 +10,42 @@
     @php( $i=0 )
     <tr>
     @foreach ($courses as $course)
-    @php($i++)
-    @if( $i%4 == 0)
+    @if( $i%3 == 0)
+    <tr>
+        <td>
+        <br>
+        </td>
+    </tr>
     <tr>
     @endif
+    @php($i++)
     <td>
-    <div class="col mx-auto">
-            <div class="card mx-auto" style="width: 18rem;">
+    <div class="col mx-auto shadow-none p-3 mb-5 bg-light rounded">
+            <div class="card mx-auto" style="width: 21rem;">
                 <img src="/{{ $course->thumbnail }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"> <b>{{ $course->name }}</b> </h5>
+                    <h5 class="card-title"> <b>Name: {{ $course->name }}</b> </h5>
                     <p class="card-text m-0 p-0"> {{ $course->desc }} </p> 
-                    <p class="price"> ₹ {{ $course->price }}</p>
+                    <br>
+                    <p class="price">Price: ₹ {{ $course->price }}</p>
+                    <p>Duration: {{ $course->length }}</p>
+                    <p>Prerequisite:<br> {{ $course->prerequisite }}</p>
+                    <p>What you will Learn:<br> {{ $course->learning }}</p>
                 </div>
 
             <div class="card-footer p-0 border-0">
                     <div class="row no-gutters p-1">
                     @if(in_array($course,$usercourses))
-                        <div class="col"> <a href="{{ route('showcourse',['id'=>$course->id]) }}" class="btn btn-light btn-block" > Continue </a> </div>
+                        <div class="col"> <a href="{{ route('showcourse',['id'=>$course->id]) }}" class="btn btn-light btn-block" > Continue Learning </a> </div>
                     @else
                     <div class="col"> <a href="{{ route('enroll',['id'=>$course->id]) }}" class="btn btn-light btn-block" >Enroll Now</a> </div>
                     @endif
-                    <!-- <div class="col"> <a href="{{ route('enroll',['id'=>$course->id]) }}" class="btn btn-light btn-block" >Enroll Now</a> </div> -->
-                    <!-- <div class="col"> <a href="{{ route('showcourse',['id'=>$course->id]) }}" class="btn btn-light btn-block" > Show More </a> </div> -->
                     </div>
                 </div> 
             </div>
     </div>
-    <td>
-    @if( $i%4 == 0)
+    </td>
+    @if( $i%3 == 0)
     </tr>
     @endif
     @endforeach

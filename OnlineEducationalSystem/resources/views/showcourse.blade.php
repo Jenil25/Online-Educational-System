@@ -27,18 +27,24 @@
         color: rgb(107, 103, 103);
     }
     </style>
+
+    @if(!empty($message))
+    <div class="alert alert-success" role="alert">
+        {{ $message }}
+    </div>
+    @endif
     <div class="container-fluid">
     <div class="card p-3">
-      <div class="row">
-    <div class="col">
+      <div class="row"> <!-- Player -->
+    <div class="col"> 
           <div>
             <iframe id="player" width="100%" height="515" src="https://www.youtube.com/embed/{{ $video->link }}"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
-    </div>
-    <div class="col-3">
+    </div> <!-- PlayerEnd -->
+    <div class="col-3"> <!-- Lecture List -->
 
           <ul id="videoList" class="list-group">
 
@@ -48,9 +54,14 @@
             @endforeach
 
           </ul>
-        </div>
-
-      </div>
+    </div> <!-- Lecture List End -->
+    <div>
+              <h5>Prerequisite: {{ $course->prerequisite }}
+              <br>
+              <br>
+              Download material in PDF from <b><a href="{{ route('downloadpdf',['file'=>$course->resource]) }}">here</a></b></h5>
+    </div>
+    </div>
     </div>
     </div>
     </div>

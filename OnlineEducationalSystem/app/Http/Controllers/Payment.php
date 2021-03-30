@@ -34,6 +34,19 @@ class Payment extends Controller
         $date = now()->toDateString('Y-m-d');
         $created_at = now();
         DB::insert('INSERT INTO user_courses (user_id,course_id,payment_status,dayCreated,created_at,updated_at) Values(?,?,?,?,?,?)',[$uid,$cid,1,$date,$created_at,$created_at]);
-        echo "Payment Confirmed";
+        $message = "Your Payment is confirmed! You can now start your Course";
+        $cid = $request->id;
+        if(isset($request->vid))
+        {
+            $currentvideos = DB::table('videos')->where('id', $request->vid)->get();
+            $videos = DB::table('videos')->where('course_id', $cid)->get();
+            $video = $currentvideos[0];
+            return view('showcourse',['videos'=>$videos,'video'=>$video,'cid'=>$cid]);
+        }
+        $videos = DB::table('videos')->where('course_id', $cid)->get();
+        $video = $videos[0];
+        $coursearray = DB::table('courses')->where('id', $cid)->get();
+        $course = $coursearray[0];
+        return view('showcourse',['videos'=>$videos,'video'=>$video,'cid'=>$cid,'course'=>$course,'message'=>$message]);
     }
 }
