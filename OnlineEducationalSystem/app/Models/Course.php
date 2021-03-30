@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'desc'];
+	
+	public function user() 
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
 }

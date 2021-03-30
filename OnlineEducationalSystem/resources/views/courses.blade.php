@@ -1,17 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Welcome') }}
+            {{ __('Courses') }}
         </h2>
     </x-slot>
     <br>
-    <div style="background-image: url('https://imgix.bustle.com/uploads/shutterstock/2020/3/25/72415f8c-3e06-40fc-b5a6-32fd76c7b567-shutterstock-1270572721.jpg?w=1490&h=830&q=70&fit=crop&crop=faces&fm=jpg');">
+
     <table class = "container">
     @php( $i=0 )
     <tr>
     @foreach ($courses as $course)
     @php($i++)
-    @if( $i < 4)
+    @if( $i%4 == 0)
+    <tr>
+    @endif
     <td>
     <div class="col mx-auto">
             <div class="card mx-auto" style="width: 18rem;">
@@ -36,6 +38,8 @@
             </div>
     </div>
     <td>
+    @if( $i%4 == 0)
+    </tr>
     @endif
     @endforeach
     </tr>

@@ -37,25 +37,9 @@
             @endif
 
 
-            <div>
-            <table style="width:100%" border="1px solid red">
-            <tr>
-                <td>
-                Demo1
-                </td>
-                <td>
-                Demo2
-                </td>
-            </tr>
-            <tr>
-                <td>
-                Demo3
-                </td>
-                <td>
-                Demo4
-                </td>
-            </tr>
-            </table>
+            <div class="fluid">
+            <!-- <div style="background-image: url('https://imgix.bustle.com/uploads/shutterstock/2020/3/25/72415f8c-3e06-40fc-b5a6-32fd76c7b567-shutterstock-1270572721.jpg?w=1490&h=830&q=70&fit=crop&crop=faces&fm=jpg');"> -->
+            <img src='https://imgix.bustle.com/uploads/shutterstock/2020/3/25/72415f8c-3e06-40fc-b5a6-32fd76c7b567-shutterstock-1270572721.jpg?w=1490&h=830&q=70&fit=crop&crop=faces&fm=jpg'>
             </div>
         </div>
     </body>
