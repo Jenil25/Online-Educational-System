@@ -56,10 +56,32 @@
           </ul>
     </div> <!-- Lecture List End -->
     <div>
-              <h5>Prerequisite: {{ $course->prerequisite }}
-              <br>
-              <br>
-              Download material in PDF from <b><a href="{{ route('downloadpdf',['file'=>$course->resource]) }}">here</a></b></h5>
+                    <div class="mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">Prerequisite: </h5>
+                        <p class="card-text">
+
+                           {{ $course->prerequisite }}
+
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+        
+              <div class="mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title"> Download material in PDF form : </h5>
+                        <p class="card-text">
+
+                        <b><a href="{{ route('downloadpdf',['file'=>$course->resource]) }}"> <button type="button" class="btn btn-white shadow"> Click Here </button> </a></b>
+
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+
     </div>
     </div>
     </div>

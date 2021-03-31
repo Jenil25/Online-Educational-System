@@ -27,10 +27,10 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline"> <strong> Login </strong> </a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline"> <strong> Register </strong></a>
                         @endif
                     @endauth
                 </div>
@@ -39,7 +39,8 @@
 
             <div class="fluid">
             <!-- <div style="background-image: url('https://imgix.bustle.com/uploads/shutterstock/2020/3/25/72415f8c-3e06-40fc-b5a6-32fd76c7b567-shutterstock-1270572721.jpg?w=1490&h=830&q=70&fit=crop&crop=faces&fm=jpg');"> -->
-            <img src='https://imgix.bustle.com/uploads/shutterstock/2020/3/25/72415f8c-3e06-40fc-b5a6-32fd76c7b567-shutterstock-1270572721.jpg?w=1490&h=830&q=70&fit=crop&crop=faces&fm=jpg'>
+            <img src="{{ URL::to('/img/img1.jpg') }}">
+               
             </div>
         </div>
     </body>
