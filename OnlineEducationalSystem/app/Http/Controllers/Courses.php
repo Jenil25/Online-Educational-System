@@ -27,7 +27,9 @@ class Courses extends Controller
             $currentvideos = DB::table('videos')->where('id', $request->vid)->get();
             $videos = DB::table('videos')->where('course_id', $cid)->get();
             $video = $currentvideos[0];
-            return view('showcourse',['videos'=>$videos,'video'=>$video,'cid'=>$cid]);
+            $coursearray = DB::table('courses')->where('id', $cid)->get();
+            $course = $coursearray[0];
+            return view('showcourse',['videos'=>$videos,'video'=>$video,'cid'=>$cid,'course'=>$course]);
         }
         $videos = DB::table('videos')->where('course_id', $cid)->get();
         $video = $videos[0];
